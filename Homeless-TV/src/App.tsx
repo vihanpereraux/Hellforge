@@ -1,8 +1,9 @@
+import React from 'react'
 
-// styles
+// styles 
 import './App.css'
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
 
