@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // MUI components
 import Accordion from '@mui/material/Accordion';
@@ -8,16 +8,36 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button } from "@mui/material";
 
+// props
+import { ChannelDataProps } from "../interfaces/props";
+
 // stylesheet 
 import Styles from './SideSelection.module.css';
 
 const SideSelection: React.FC = () => {
+    const [channelData, setChannelData] = useState<ChannelDataProps[]>([]);
+
+    // fetching data from local json
+    useEffect(() => {
+
+        const fetchChannelDetails = async () => {
+            const response = await fetch('/data/channels.json');
+            const data: ChannelDataProps[] = await response.json();
+            console.log(data);
+
+            setChannelData(data)
+        }
+
+        fetchChannelDetails();
+
+    }, [])
+
     const emitStorageEvent = (item: string, value: string) => {
         localStorage.setItem(item, value)
-    
+
         window.dispatchEvent(new Event("customStorage"))
     }
-    
+
     return (
         <>
             <Accordion className={Styles._accordian}>
@@ -30,17 +50,15 @@ const SideSelection: React.FC = () => {
                     <Typography component="span">Channels</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Button onClick={() => {
-                        emitStorageEvent('item', "B1clicked");
-                    }}>Test Channel 01</Button>
 
-                    <Button onClick={() => {
-                        emitStorageEvent('item', "B2clicked");
-                    }}>Test Channel 02</Button>
-                    
-                    <Button>Test Channel 03</Button>
-                    <Button>Test Channel 04</Button>
-                    <Button>Test Channel 05</Button>
+                    {channelData.map((data, index) => (
+                        <div key={index}>
+                            <Button onClick={() => {
+                                emitStorageEvent('item', `${data._channel_url}`);
+                            }}>{data._channel_name}</Button>
+                        </div>
+                    ))}
+
                 </AccordionDetails>
             </Accordion>
         </>
