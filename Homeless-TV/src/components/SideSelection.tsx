@@ -12,6 +12,12 @@ import { Button } from "@mui/material";
 import Styles from './SideSelection.module.css';
 
 const SideSelection: React.FC = () => {
+    const emitStorageEvent = (item: string, value: string) => {
+        localStorage.setItem(item, value)
+    
+        window.dispatchEvent(new Event("customStorage"))
+    }
+    
     return (
         <>
             <Accordion className={Styles._accordian}>
@@ -25,11 +31,13 @@ const SideSelection: React.FC = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Button onClick={() => {
-                        localStorage.setItem('item', "B1clicked")
+                        emitStorageEvent('item', "B1clicked");
                     }}>Test Channel 01</Button>
+
                     <Button onClick={() => {
-                        localStorage.setItem('item', "B2clicked")
+                        emitStorageEvent('item', "B2clicked");
                     }}>Test Channel 02</Button>
+                    
                     <Button>Test Channel 03</Button>
                     <Button>Test Channel 04</Button>
                     <Button>Test Channel 05</Button>
