@@ -26,9 +26,7 @@ const Screen: React.FC = () => {
             <ReactPlayer
                 height={720 / 1.2}
                 width={1080 / 1.2}
-                style={{
-                    border: '1px solid red',
-                }}
+                // style={{ border: '1px solid red' }}
                 url={value}
                 playing={true}
                 controls

@@ -40,25 +40,28 @@ const SideSelection: React.FC = () => {
 
     return (
         <>
-            <Accordion className={Styles._accordian}>
+            <Accordion defaultExpanded className={Styles._accordian}>
                 <AccordionSummary
                     className={Styles._accordian_heading}
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1-content"
                     id="panel1-header"
                 >
-                    <Typography component="span">Channels</Typography>
+                    <Typography
+                        sx={{ color: 'white' }}
+                        component="span">Channels</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
 
+                <AccordionDetails>
                     {channelData.map((data, index) => (
                         <div key={index}>
-                            <Button onClick={() => {
-                                emitStorageEvent('item', `${data._channel_url}`);
-                            }}>{data._channel_name}</Button>
+                            <Button
+                                onClick={() => {
+                                    emitStorageEvent('item', `${data._channel_url}`);
+                                }}>
+                                {data._channel_name}</Button>
                         </div>
                     ))}
-
                 </AccordionDetails>
             </Accordion>
         </>

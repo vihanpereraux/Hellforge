@@ -1,5 +1,5 @@
 ._home_wrapper {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100vw;
     height: 100vh;
     overflow: none !important;
@@ -7,11 +7,11 @@
 }
 
 ._selections {
-    border: 1px solid yellow;    
+    /* border: 1px solid yellow;     */
     width: 300px;
 }
 
 ._screen {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: calc(100vw - 300px);
 }
