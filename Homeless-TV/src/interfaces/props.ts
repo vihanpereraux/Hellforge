@@ -1,4 +1,5 @@
 export interface ChannelDataProps {
-    _channel_name: string,
-    _channel_url: string
+    channelName: string,
+    channelURL: string,
+    streamType: string
 }

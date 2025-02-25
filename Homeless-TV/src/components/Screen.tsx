@@ -1,37 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 
+// interfaces
+import { ChannelDataProps } from '../interfaces/props';
+
 const Screen: React.FC = () => {
-    const [value, setValue] = useState<string>(localStorage.getItem('item') as string);
+    const [data, setData] = useState<ChannelDataProps>();
 
     useEffect(() => {
-        const handler = () => {
-            const newValue = localStorage.getItem('item') as string;
-            setValue(newValue);
-            console.log(`New value is ${newValue}`)
+        const fetchChannelDetails = () => {
+            const data: ChannelDataProps = JSON.parse(localStorage.getItem('channel') as string);
+            setData(data);
+            console.log(data.channelURL)
         };
-
-        window.addEventListener('customStorage', handler)
-
+        window.addEventListener('customStorage', fetchChannelDetails)
         return (() => {
-            window.removeEventListener('customStorage', handler)
+            window.removeEventListener('customStorage', fetchChannelDetails)
         })
     }, []);
 
     return (
         <div>
             {/* channel details */}
-            {/* add the channel name here */}
+            <h2 style={{
+                color: 'white',
+                fontFamily: 'Rubik',
+                fontWeight: '450'
+            }}>{data?.channelName}</h2>
 
-            <ReactPlayer
-                height={720 / 1.2}
-                width={1080 / 1.2}
-                // style={{ border: '1px solid red' }}
-                url={value}
-                playing={true}
-                controls
-                muted={false}
-            />
+            {/* stream / player */}
+            {data?.streamType === "stream" ? (
+                <ReactPlayer
+                    style={{ borderRadius: '12px' }}
+                    height={720 / 1.2}
+                    width={1080 / 1.2}
+                    url={data?.channelURL}
+                    playing={true}
+                    controls
+                    muted={false}
+                />
+            ) : (
+                <div>
+                    <iframe style={{
+                        height: 'calc(720px / 1.2)',
+                        width: 'calc(1080px / 1.2)',
+                        border: 'none',
+                        borderRadius: '12px'
+                    }} src={data?.channelURL}></iframe>
+                </div>
+            )}
+
         </div>
     );
 };

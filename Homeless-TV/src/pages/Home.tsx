@@ -11,8 +11,12 @@ const Home: React.FC = () => {
     return (
         <>
             <div className={Styles._home_wrapper}>
-                <div className={Styles._selections}><SideSelection /></div>
-                <div className={Styles._screen}><Screen /></div>
+                <div className={Styles._selections}>
+                    <SideSelection />
+                </div>
+                <div className={Styles._screen}>
+                    <Screen />
+                </div>
             </div>
         </>
     )

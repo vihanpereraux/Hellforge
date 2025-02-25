@@ -1,8 +1,7 @@
 ._accordian {
-    background-color: rgb(19, 19, 19) !important;
+    background-color: rgb(12, 12, 12) !important;
     margin-bottom: 10px;
-}
-
-._accordian_heading {
-    background-color: orangered;
+    padding-right: 10px;
+    height: 100%;
+    overflow-y: auto;
 }

@@ -32,9 +32,13 @@ const SideSelection: React.FC = () => {
 
     }, [])
 
-    const emitStorageEvent = (item: string, value: string) => {
-        localStorage.setItem(item, value)
-
+    const emitStorageEvent = (channelName: string, channelURL: string, streamType: string) => {
+        const channelDetails = {
+            channelName: channelName,
+            channelURL: channelURL,
+            streamType: streamType,
+        }
+        localStorage.setItem('channel', JSON.stringify(channelDetails));
         window.dispatchEvent(new Event("customStorage"))
     }
 
@@ -48,18 +52,35 @@ const SideSelection: React.FC = () => {
                     id="panel1-header"
                 >
                     <Typography
-                        sx={{ color: 'white' }}
-                        component="span">Channels</Typography>
+                        sx={{ color: 'white', pl: '12px' }}
+                        component="span">Homeless TV</Typography>
                 </AccordionSummary>
 
                 <AccordionDetails>
                     {channelData.map((data, index) => (
                         <div key={index}>
-                            <Button
+                            <div
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'white',
+                                    fontFamily: 'Rubik',
+                                    fontWeight: '400',
+                                    // border: '1px solid red',
+                                    width: '100%',
+                                    height: 55,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    marginBottom: 10,
+                                    paddingLeft: 12,
+                                    background: 'rgb(25, 25, 25)',
+                                    fontSize: 16,
+                                    borderRadius: 8,
+                                    cursor: 'pointer'
+                                }}
                                 onClick={() => {
-                                    emitStorageEvent('item', `${data._channel_url}`);
+                                    emitStorageEvent(`${data.channelName}`, `${data.channelURL}`, `${data.streamType}`)
                                 }}>
-                                {data._channel_name}</Button>
+                                {data.channelName}</div>
                         </div>
                     ))}
                 </AccordionDetails>
