@@ -34,10 +34,9 @@ const Screen: React.FC = () => {
                     <ReactPlayer
                         style={{
                             borderRadius: '12px',
-
                         }}
-                        // height={720 / 1.2}
-                        // width={1080 / 1.2}
+                        height={720 / 1.2}
+                        width={1080 / 1.2}
                         url={data?.channelURL}
                         playing={true}
                         controls
