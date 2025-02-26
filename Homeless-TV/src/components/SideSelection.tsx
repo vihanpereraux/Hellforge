@@ -52,7 +52,13 @@ const SideSelection: React.FC = () => {
                     id="panel1-header"
                 >
                     <Typography
-                        sx={{ color: 'white', pl: '12px' }}
+                        sx={{
+                            color: 'white',
+                            pl: '12px',
+                            fontSize: 18,
+                            fontWeight: 450,
+                            fontFamily: 'Rubik'
+                        }}
                         component="span">Homeless TV</Typography>
                 </AccordionSummary>
 
@@ -73,13 +79,20 @@ const SideSelection: React.FC = () => {
                                     marginBottom: 10,
                                     paddingLeft: 12,
                                     background: 'rgb(25, 25, 25)',
-                                    fontSize: 16,
+                                    fontSize: 15,
                                     borderRadius: 8,
                                     cursor: 'pointer'
                                 }}
                                 onClick={() => {
                                     emitStorageEvent(`${data.channelName}`, `${data.channelURL}`, `${data.streamType}`)
                                 }}>
+                                <img style={{
+                                    width: '26px',
+                                    height: '18px',
+                                    objectFit: 'cover',
+                                    borderRadius: 5,
+                                    marginRight: 13
+                                }} src={data.channel_logo} alt="" />
                                 {data.channelName}</div>
                         </div>
                     ))}

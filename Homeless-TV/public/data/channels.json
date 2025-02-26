@@ -1,37 +1,44 @@
 [
     {
         "channelName": "Sky News",
-        "streamType" : "stream",
-        "channelURL": "https://linear417-gb-hls1-prd-ak.cdn.skycdp.com/100e/Content/HLS_001_1080_30/Live/channel(skynews)/03_1080-30.m3u8"    
+        "streamType": "stream",
+        "channelURL": "https://linear417-gb-hls1-prd-ak.cdn.skycdp.com/100e/Content/HLS_001_1080_30/Live/channel(skynews)/03_1080-30.m3u8",
+        "channel_logo": "https://i.ibb.co/Xf90GY0n/image.png"
     },
     {
         "channelName": "Test Channel",
-        "streamType" : "stream",
-        "channelURL": "https://s6.hopslan.com/sat1x1/tracks-v1a1/mono.m3u8?token=c85e23dd534c16f0c3c357e3daf31ec09efe13fe-36f0e77d4c4afa03583fbb097555072a-1737461667-1737450867"
+        "streamType": "stream",
+        "channelURL": "https://s6.hopslan.com/sat1x1/tracks-v1a1/mono.m3u8?token=c85e23dd534c16f0c3c357e3daf31ec09efe13fe-36f0e77d4c4afa03583fbb097555072a-1737461667-1737450867",
+        "channel_logo": "https://i.ibb.co/Xf90GY0n/image.png"
     },
     {
         "channelName": "Willow Cricket",
-        "streamType" : "iframe",
-        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=willow"
+        "streamType": "iframe",
+        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=willow",
+        "channel_logo": "https://i.ibb.co/nMBGQZZG/image.png"
     },
     {
         "channelName": "Sky Sports Cricket",
-        "streamType" : "iframe",
-        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=skysp2"
+        "streamType": "iframe",
+        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=skysp2",
+        "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
     },
     {
         "channelName": "Ten Sports",
-        "streamType" : "iframe",
-        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=tensp"
+        "streamType": "iframe",
+        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=tensp",
+        "channel_logo" : "https://i.ibb.co/5WH5zg9w/image.png"
     },
     {
         "channelName": "Sports 18",
-        "streamType" : "iframe",
-        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=sports18in1"
+        "streamType": "iframe",
+        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=sports18in1",
+        "channel_logo" : "https://i.ibb.co/NdwpbCC0/image.png"
     },
     {
         "channelName": "Laliga TV",
-        "streamType" : "iframe",
-        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=laliga"
+        "streamType": "iframe",
+        "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=laliga",
+        "channel_logo" : "https://i.ibb.co/PZPCbfhd/image.png"
     }
 ]

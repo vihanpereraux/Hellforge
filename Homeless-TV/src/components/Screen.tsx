@@ -29,27 +29,33 @@ const Screen: React.FC = () => {
             }}>{data?.channelName}</h2>
 
             {/* stream / player */}
-            {data?.streamType === "stream" ? (
-                <ReactPlayer
-                    style={{ borderRadius: '12px' }}
-                    height={720 / 1.2}
-                    width={1080 / 1.2}
-                    url={data?.channelURL}
-                    playing={true}
-                    controls
-                    muted={false}
-                />
-            ) : (
-                <div>
-                    <iframe style={{
-                        height: 'calc(720px / 1.2)',
-                        width: 'calc(1080px / 1.2)',
-                        border: 'none',
-                        borderRadius: '12px'
-                    }} src={data?.channelURL}></iframe>
-                </div>
-            )}
+            <div>
+                {data?.streamType === "stream" ? (
+                    <ReactPlayer
+                        style={{
+                            borderRadius: '12px',
 
+                        }}
+                        // height={720 / 1.2}
+                        // width={1080 / 1.2}
+                        url={data?.channelURL}
+                        playing={true}
+                        controls
+                        muted={false}
+                    />
+                ) : (
+                    <div>
+                        <iframe
+                            allowFullScreen={true}
+                            style={{
+                                height: 'calc(720px / 1.2)',
+                                width: 'calc(1080px / 1.2)',
+                                border: 'none',
+                                borderRadius: '12px'
+                            }} src={data?.channelURL}></iframe>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
