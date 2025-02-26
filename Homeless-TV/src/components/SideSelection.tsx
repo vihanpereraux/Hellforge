@@ -61,7 +61,7 @@ const SideSelection: React.FC = () => {
                         component="span">Homeless TV</Typography>
                 </AccordionSummary>
 
-                <AccordionDetails>
+                <AccordionDetails className={Styles._accordion_details}>
                     {channelData.map((data, index) => (
                         <div key={index}>
                             <div

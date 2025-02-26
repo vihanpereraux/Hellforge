@@ -29,7 +29,7 @@ const Player: React.FC<PlayerProps> = ({ data, streamType }) => {
                         width: '99%',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
                     }}>
                         <iframe
                             allowFullScreen={true}

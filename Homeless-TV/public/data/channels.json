@@ -6,10 +6,46 @@
         "channel_logo": "https://i.ibb.co/Xf90GY0n/image.png"
     },
     {
-        "channelName": "Test Channel",
+        "channelName": "Redbul TV",
         "streamType": "stream",
-        "channelURL": "https://d9.dunyapurkaraja.com:999/hls/willowusa.m3u8?md5=BJvfEAHFDCCol9XWl8WWFA&expires=1740582949",
+        "channelURL": "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_928.m3u8",
+        "channel_logo": "https://i.ibb.co/jPdNmNg3/image.png"
+    },
+    {
+        "channelName": "Bloomberg Quickmate",
+        "streamType": "stream",
+        "channelURL": "https://bloomberg-quicktake-1-se.samsung.wurl.tv/24db5244c1151c1231b2d0337bfb89c2.m3u8",
+        "channel_logo": "https://i.ibb.co/Ps4NBwGq/image.png"
+    },
+    {
+        "channelName": "Fashion TV",
+        "streamType": "stream",
+        "channelURL": "https://fashs043.cloudycdn.services/scte/sftv2/sftv2_chunklist.m3u8",
+        "channel_logo": "https://i.ibb.co/99NG8Zvy/image.png"
+    },
+    {
+        "channelName": "Sky News 02",
+        "streamType": "iframe",
+        "channelURL": "https://www.livehdtv.com/embed/skynews/",
         "channel_logo": "https://i.ibb.co/Xf90GY0n/image.png"
+    },
+    {
+        "channelName": "GB News",
+        "streamType": "iframe",
+        "channelURL": "https://www.livehdtv.com/embed/gb-news/",
+        "channel_logo": "https://i.ibb.co/ymHPPYnM/image.png"
+    },
+    {
+        "channelName": "CNN",
+        "streamType": "iframe",
+        "channelURL": "https://www.livehdtv.com/embed/ch612/",
+        "channel_logo": "https://i.ibb.co/1tzCJ3bk/image.png"
+    },
+    {
+        "channelName": "Buzzr TV",
+        "streamType": "iframe",
+        "channelURL": "https://www.livehdtv.com/embed/buzzr-tv/",
+        "channel_logo": "https://i.ibb.co/xSdq6kDL/image.png"
     },
     {
         "channelName": "Willow Cricket 01",
@@ -54,6 +90,60 @@
         "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
     },
     {
+        "channelName": "Sky Sport 4 NZ",
+        "streamType": "iframe",
+        "channelURL": "//stream.crichd.sc/update/sky4nz.php",
+        "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
+    },
+    {
+        "channelName": "Sky Sport 5 NZ",
+        "streamType": "iframe",
+        "channelURL": "//stream.crichd.sc/update/sky5nz.php",
+        "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
+    },
+    {
+        "channelName": "Sky Sport 6 NZ",
+        "streamType": "iframe",
+        "channelURL": "//stream.crichd.sc/update/sky6nz.php",
+        "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
+    },
+    {
+        "channelName": "Fox Cricket 501",
+        "streamType": "iframe",
+        "channelURL": "//stream.crichd.sc/update/fox501.php",
+        "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
+    },
+    {
+        "channelName": "ITV4 UK",
+        "streamType": "stream",
+        "channelURL": "https://livetvde.net/itv4/tracks-v1a1/mono.m3u8?token=d84fa08c0222e25a336fd64c0d1c7f114d45e4d0-d3f260383b56e9f91c159aa0338603aa-1740591690-1740580890",
+        "channel_logo" : "https://i.ibb.co/ksrM0Zqm/image.png"
+    },
+    {
+        "channelName": "ITV2 UK",
+        "streamType": "iframe",
+        "channelURL": "https://www.livehdtv.com/embed/itv2/",
+        "channel_logo" : "https://i.ibb.co/n8jvsSDn/image.png"
+    },
+    {
+        "channelName": "ITV3 UK",
+        "streamType": "iframe",
+        "channelURL": "https://www.livehdtv.com/embed/itv3/",
+        "channel_logo" : "https://i.ibb.co/n8jvsSDn/image.png"
+    },
+    {
+        "channelName": "Dave",
+        "streamType": "stream",
+        "channelURL": "https://livetvde.net/dave/tracks-v1a1/mono.m3u8?token=8db71008d1f8aabf503cd0c6f30b2ffb4a805cc6-ecd9213a781a10989b184b2161c4f49f-1740591387-1740580587",
+        "channel_logo" : "https://i.ibb.co/pv4HRPKK/image.png"
+    },
+    {
+        "channelName": "Channel 4",
+        "streamType": "iframe",
+        "channelURL": "https://www.livehdtv.com/embed/channel-4-uk/",
+        "channel_logo" : "https://i.ibb.co/603LbFYf/image.png"
+    },
+    {
         "channelName": "Ten Sports",
         "streamType": "iframe",
         "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=tensp",
@@ -70,5 +160,35 @@
         "streamType": "iframe",
         "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=laliga",
         "channel_logo" : "https://i.ibb.co/PZPCbfhd/image.png"
+    },
+    {
+        "channelName": "A Sports HD",
+        "streamType": "iframe",
+        "channelURL": "//stream.crichd.sc/update/asportshd.php",
+        "channel_logo" : ""
+    },
+    {
+        "channelName": "24H Free Movies",
+        "streamType": "stream",
+        "channelURL": "https://d1j2u714xk898n.cloudfront.net/scheduler/scheduleMaster/145/variant/22099475.m3u8",
+        "channel_logo" : ""
+    },
+    {
+        "channelName": "30A Music",
+        "streamType": "stream",
+        "channelURL": "https://30a-tv.com/feeds/720p/6.m3u8",
+        "channel_logo" : ""
+    },
+    {
+        "channelName": "Hiru TV",
+        "streamType": "stream",
+        "channelURL": "https://tv.hiruhost.com:1936/8012/8012/chunklist_w401432175.m3u8",
+        "channel_logo" : ""
+    },
+    {
+        "channelName": "Swarnavahini",
+        "streamType": "stream",
+        "channelURL": "https://jk3lz8xklw79-hls-live.5centscdn.com/live/6226f7cbe59e99a90b5cef6f94f966fd.sdp/chunks.m3u8",
+        "channel_logo" : ""
     }
 ]
