@@ -8,13 +8,19 @@
     {
         "channelName": "Test Channel",
         "streamType": "stream",
-        "channelURL": "https://s6.hopslan.com/sat1x1/tracks-v1a1/mono.m3u8?token=c85e23dd534c16f0c3c357e3daf31ec09efe13fe-36f0e77d4c4afa03583fbb097555072a-1737461667-1737450867",
+        "channelURL": "https://d9.dunyapurkaraja.com:999/hls/willowusa.m3u8?md5=BJvfEAHFDCCol9XWl8WWFA&expires=1740582949",
         "channel_logo": "https://i.ibb.co/Xf90GY0n/image.png"
     },
     {
-        "channelName": "Willow Cricket",
+        "channelName": "Willow Cricket 01",
         "streamType": "iframe",
         "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=willow",
+        "channel_logo": "https://i.ibb.co/nMBGQZZG/image.png"
+    },
+    {
+        "channelName": "Willow Cricket 02",
+        "streamType": "iframe",
+        "channelURL": "//stream.crichd.sc/update/willowcricket.php",
         "channel_logo": "https://i.ibb.co/nMBGQZZG/image.png"
     },
     {
