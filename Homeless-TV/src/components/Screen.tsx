@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import ReactPlayer from 'react-player';
+
+// components
+import Player from './Player';
 
 // interfaces
 import { ChannelDataProps } from '../interfaces/props';
@@ -25,35 +27,20 @@ const Screen: React.FC = () => {
             <h2 style={{
                 color: 'white',
                 fontFamily: 'Rubik',
-                fontWeight: '450'
+                fontWeight: '450',
+                textAlign: 'center'
             }}>{data?.channelName}</h2>
 
             {/* stream / player */}
             <div>
-                {data?.streamType === "stream" ? (
-                    <ReactPlayer
-                        style={{
-                            borderRadius: '12px',
-                        }}
-                        height={720 / 1.2}
-                        width={1080 / 1.2}
-                        url={data?.channelURL}
-                        playing={true}
-                        controls
-                        muted={false}
-                    />
-                ) : (
-                    <div>
-                        <iframe
-                            allowFullScreen={true}
-                            style={{
-                                height: 'calc(720px / 1.2)',
-                                width: 'calc(1080px / 1.2)',
-                                border: 'none',
-                                borderRadius: '12px'
-                            }} src={data?.channelURL}></iframe>
-                    </div>
-                )}
+                {data?.streamType === "stream" ?
+                    <Player
+                        data={data as ChannelDataProps}
+                        streamType="stream" />
+                    :
+                    <Player
+                        data={data as ChannelDataProps}
+                        streamType="iframe" />}
             </div>
         </div>
     );

@@ -70,7 +70,6 @@ const SideSelection: React.FC = () => {
                                     color: 'white',
                                     fontFamily: 'Rubik',
                                     fontWeight: '400',
-                                    // border: '1px solid red',
                                     width: '100%',
                                     height: 55,
                                     display: 'flex',
@@ -87,9 +86,9 @@ const SideSelection: React.FC = () => {
                                 }}>
                                 <img style={{
                                     width: '26px',
-                                    height: '18px',
+                                    aspectRatio: '16/9',
                                     objectFit: 'cover',
-                                    borderRadius: 5,
+                                    borderRadius: 4,
                                     marginRight: 13
                                 }} src={data.channel_logo} alt="" />
                                 {data.channelName}</div>

@@ -4,3 +4,8 @@ export interface ChannelDataProps {
     streamType: string,
     channel_logo: string
 }
+
+export interface PlayerProps {
+    data: ChannelDataProps,
+    streamType: string,
+}
