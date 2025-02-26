@@ -24,9 +24,27 @@
         "channel_logo": "https://i.ibb.co/nMBGQZZG/image.png"
     },
     {
-        "channelName": "Sky Sports Cricket",
+        "channelName": "Sky Sports Cricket 01",
         "streamType": "iframe",
         "channelURL": "https://cdn.crichdplays.ru/embed2.php?id=skysp2",
+        "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
+    },
+    {
+        "channelName": "Sky Sports Cricket 02",
+        "streamType": "iframe",
+        "channelURL": "//stream.crichd.sc/update/skys1.php",
+        "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
+    },
+    {
+        "channelName": "Sky Sports Action",
+        "streamType": "iframe",
+        "channelURL": "//stream.crichd.sc/update/skys3.php",
+        "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
+    },
+    {
+        "channelName": "Sky Sports F1",
+        "streamType": "iframe",
+        "channelURL": "//stream.crichd.sc/update/skyf1.php",
         "channel_logo" : "https://i.ibb.co/LXMW6549/image.png"
     },
     {
