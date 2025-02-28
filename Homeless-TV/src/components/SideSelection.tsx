@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 // props
-import { ChannelDataProps } from "../interfaces/props";
+// import { ChannelDataProps } from "../interfaces/props";
 import { ChannelDetailsProps } from "../interfaces/props";
 
 // stylesheet 
