@@ -21,26 +21,25 @@ import Styles from './SideSelection.module.css';
 
 
 const SideSelection: React.FC = () => {
-    const [channelData, setChannelData] = useState<ChannelDataProps[]>([]);
+    // const [channelData, setChannelData] = useState<ChannelDataProps[]>([]);
     const [data, setData] = useState<ChannelDetailsProps[]>([]);
 
     const fetchChannelDetails = async () => {
         const querySnapshot = await getDocs(collection(db, "channels"));
         const items = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setData([...items as ChannelDetailsProps[]]);
-        console.log(items);
     }
 
     // fetching data from local json
-    const fetchLocalChannelDetails = async () => {
-        const response = await fetch('/data/channels.json');
-        const data: ChannelDataProps[] = await response.json();
-        setChannelData(data)
-    }
+    // const fetchLocalChannelDetails = async () => {
+    //     const response = await fetch('/data/channels.json');
+    //     const data: ChannelDataProps[] = await response.json();
+    //     setChannelData(data)
+    // }
 
     useEffect(() => {
         fetchChannelDetails();
-        fetchLocalChannelDetails();
+        // fetchLocalChannelDetails();
     }, [])
 
     const emitStorageEvent = (channelName: string, channelURL: string, streamType: string) => {
