@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 
+// firebase
+import { collection, getDocs } from 'firebase/firestore';
+import { getFirebaseConnection } from '../services/Firebase';
+const db = getFirebaseConnection();
+
 // MUI components
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -9,26 +14,33 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 // props
 import { ChannelDataProps } from "../interfaces/props";
+import { ChannelDetailsProps } from "../interfaces/props";
 
 // stylesheet 
 import Styles from './SideSelection.module.css';
 
+
 const SideSelection: React.FC = () => {
     const [channelData, setChannelData] = useState<ChannelDataProps[]>([]);
+    const [data, setData] = useState<ChannelDetailsProps[]>([]);
+
+    const fetchChannelDetails = async () => {
+        const querySnapshot = await getDocs(collection(db, "channels"));
+        const items = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setData([...items as ChannelDetailsProps[]]);
+        console.log(items);
+    }
 
     // fetching data from local json
+    const fetchLocalChannelDetails = async () => {
+        const response = await fetch('/data/channels.json');
+        const data: ChannelDataProps[] = await response.json();
+        setChannelData(data)
+    }
+
     useEffect(() => {
-
-        const fetchChannelDetails = async () => {
-            const response = await fetch('/data/channels.json');
-            const data: ChannelDataProps[] = await response.json();
-            console.log(data);
-
-            setChannelData(data)
-        }
-
         fetchChannelDetails();
-
+        fetchLocalChannelDetails();
     }, [])
 
     const emitStorageEvent = (channelName: string, channelURL: string, streamType: string) => {
@@ -62,7 +74,7 @@ const SideSelection: React.FC = () => {
                 </AccordionSummary>
 
                 <AccordionDetails className={Styles._accordion_details}>
-                    {channelData.map((data, index) => (
+                    {data.map((data, index) => (
                         <div key={index}>
                             <div
                                 style={{
@@ -90,7 +102,7 @@ const SideSelection: React.FC = () => {
                                     objectFit: 'cover',
                                     borderRadius: 4,
                                     marginRight: 13
-                                }} src={data.channel_logo} alt="" />
+                                }} src={data.channelLogo} alt="" />
                                 {data.channelName}</div>
                         </div>
                     ))}

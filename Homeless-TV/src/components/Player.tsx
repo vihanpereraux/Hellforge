@@ -21,7 +21,7 @@ const Player: React.FC<PlayerProps> = ({ data, streamType }) => {
                             url={data?.channelURL}
                             playing={true}
                             controls
-                            muted={false}
+                            muted={true}
                         />
                     </div>
                 ) : (

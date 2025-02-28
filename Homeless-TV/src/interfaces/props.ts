@@ -9,3 +9,12 @@ export interface PlayerProps {
     data: ChannelDataProps,
     streamType: string,
 }
+
+export interface ChannelDetailsProps {
+    id: string,
+    channelName: string,
+    streamType: string,
+    channelLogo: string,
+    channelCategory: string,
+    channelURL: string
+}
