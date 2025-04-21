@@ -28,8 +28,9 @@ const Screen: React.FC = () => {
                 color: 'white',
                 fontFamily: 'Rubik',
                 fontWeight: '450',
-                textAlign: 'center'
-            }}>{data?.channelName}</h2>
+                textAlign: 'center',
+                fontSize: 22
+            }}>You're watching - {data?.channelName}</h2>
 
             {/* stream / player */}
             <div>

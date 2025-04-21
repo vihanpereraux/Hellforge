@@ -10,7 +10,7 @@ const Player: React.FC<PlayerProps> = ({ data, streamType }) => {
             <div>
                 {streamType === "stream" ? (
                     <div style={{
-                        width: '99%',
+                        width: '98.25%',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center'

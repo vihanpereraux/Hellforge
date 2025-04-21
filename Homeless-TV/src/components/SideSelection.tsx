@@ -11,36 +11,33 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { TextField } from "@mui/material";
 
 // props
-// import { ChannelDataProps } from "../interfaces/props";
 import { ChannelDetailsProps } from "../interfaces/props";
 
 // stylesheet 
-import Styles from './SideSelection.module.css';
+import Styles from './side-selection.module.css';
 
 
 const SideSelection: React.FC = () => {
-    // const [channelData, setChannelData] = useState<ChannelDataProps[]>([]);
     const [data, setData] = useState<ChannelDetailsProps[]>([]);
+    const [originalData, setOriginalData] = useState<ChannelDetailsProps[]>([])
 
     const fetchChannelDetails = async () => {
         const querySnapshot = await getDocs(collection(db, "channels"));
         const items = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setData([...items as ChannelDetailsProps[]]);
+        setOriginalData([...items as ChannelDetailsProps[]]);
     }
 
-    // fetching data from local json
-    // const fetchLocalChannelDetails = async () => {
-    //     const response = await fetch('/data/channels.json');
-    //     const data: ChannelDataProps[] = await response.json();
-    //     setChannelData(data)
-    // }
+    const handleQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const keyWord = e.target.value.toLowerCase();
+        const filteredContent = originalData.filter((item) => item.channelName.toLowerCase().includes(keyWord))
+        setData([...filteredContent] as ChannelDetailsProps[]);
+    }
 
-    useEffect(() => {
-        fetchChannelDetails();
-        // fetchLocalChannelDetails();
-    }, [])
+    useEffect(() => { fetchChannelDetails(); }, [])
 
     const emitStorageEvent = (channelName: string, channelURL: string, streamType: string) => {
         const channelDetails = {
@@ -73,6 +70,27 @@ const SideSelection: React.FC = () => {
                 </AccordionSummary>
 
                 <AccordionDetails className={Styles._accordion_details}>
+                    {/* fzf */}
+                    <TextField
+                        className={Styles.search}
+                        sx={{
+                            width: '105%',
+                            mb: 2.5,
+                            border: 'none',
+                            backgroundColor: 'rgb(25, 25, 25)'
+                        }}
+                        id="outlined-basic"
+                        label="Search channels"
+                        variant="outlined"
+                        InputProps={{
+                            style: { color: 'white' }
+                        }}
+                        InputLabelProps={{
+                            style: { color: 'white', fontSize: 15 }
+                        }}
+                        onChange={handleQuery}
+                    />
+
                     {data.map((data, index) => (
                         <div key={index}>
                             <div
