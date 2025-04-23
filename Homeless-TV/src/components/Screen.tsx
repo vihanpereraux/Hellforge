@@ -13,7 +13,6 @@ const Screen: React.FC = () => {
         const fetchChannelDetails = () => {
             const data: ChannelDataProps = JSON.parse(localStorage.getItem('channel') as string);
             setData(data);
-            console.log(data.channelURL)
         };
         window.addEventListener('customStorage', fetchChannelDetails)
         return (() => {

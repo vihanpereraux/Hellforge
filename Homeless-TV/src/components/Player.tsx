@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ReactPlayer from 'react-player';
 
 // props
 import { PlayerProps } from "../interfaces/props";
 
 const Player: React.FC<PlayerProps> = ({ data, streamType }) => {
+    useEffect(() => {
+        console.log(streamType)
+    }, [data, streamType])
+    
     return (
         <>
             <div>

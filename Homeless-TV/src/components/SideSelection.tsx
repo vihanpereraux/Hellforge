@@ -58,6 +58,7 @@ const SideSelection: React.FC = () => {
                     aria-controls="panel1-content"
                     id="panel1-header"
                 >
+                    <img style={{ width: '25px', height: '25px', borderRadius: 5 }} src="/icon.png" alt="" />
                     <Typography
                         sx={{
                             color: 'white',
