@@ -1,27 +1,34 @@
 import React, { useEffect, useState } from 'react';
-
-// components
 import Player from './Player';
-
-// interfaces
 import { ChannelDataProps } from '../interfaces/props';
+import './tv-effect.css';
 
 const Screen: React.FC = () => {
     const [data, setData] = useState<ChannelDataProps>();
+    const [showEffect, setShowEffect] = useState(true);
 
     useEffect(() => {
         const fetchChannelDetails = () => {
             const data: ChannelDataProps = JSON.parse(localStorage.getItem('channel') as string);
             setData(data);
+            setShowEffect(true);
+            setTimeout(() => setShowEffect(false), 2800);
         };
-        window.addEventListener('customStorage', fetchChannelDetails)
+
+        // Initial TV effect
+        setShowEffect(true);
+        setTimeout(() => setShowEffect(false), 1000);
+        
+        window.addEventListener('customStorage', fetchChannelDetails);
         return (() => {
-            window.removeEventListener('customStorage', fetchChannelDetails)
-        })
+            window.removeEventListener('customStorage', fetchChannelDetails);
+        });
     }, []);
 
     return (
-        <div>
+        <div className="tv-screen">
+            {showEffect && <div className="tv-effect" />}
+            
             {/* channel details */}
             <h2 style={{
                 color: 'white',
@@ -29,18 +36,26 @@ const Screen: React.FC = () => {
                 fontWeight: '450',
                 textAlign: 'center',
                 fontSize: 22
-            }}>You're watching - {data?.channelName}</h2>
+            }}>
+                {(data?.channelName) 
+                    ? `You're watching - ${data?.channelName}`
+                    : 'Welcome to Homeless TV'
+                }
+            </h2>
 
             {/* stream / player */}
             <div>
-                {data?.streamType === "stream" ?
+                {data?.streamType === "stream" ? (
                     <Player
                         data={data as ChannelDataProps}
-                        streamType="stream" />
-                    :
+                        streamType="stream"
+                    />
+                ) : (
                     <Player
                         data={data as ChannelDataProps}
-                        streamType="iframe" />}
+                        streamType="iframe"
+                    />
+                )}
             </div>
         </div>
     );

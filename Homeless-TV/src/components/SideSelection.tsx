@@ -58,13 +58,17 @@ const SideSelection: React.FC = () => {
                     aria-controls="panel1-content"
                     id="panel1-header"
                 >
-                    <img style={{ width: '25px', height: '25px', borderRadius: 5 }} src="/icon.png" alt="" />
+                    <img style={{
+                        width: '22px',
+                        height: '22px',
+                        borderRadius: 5
+                    }} src="/icon.png" alt="" />
                     <Typography
                         sx={{
                             color: 'white',
                             pl: '12px',
-                            fontSize: 18,
-                            fontWeight: 450,
+                            fontSize: 16,
+                            fontWeight: 500,
                             fontFamily: 'Rubik'
                         }}
                         component="span">Homeless TV</Typography>
@@ -76,18 +80,20 @@ const SideSelection: React.FC = () => {
                         className={Styles.search}
                         sx={{
                             width: '105%',
-                            mb: 2.5,
+                            mb: 3.5,
+                            mt: .5,
                             border: 'none',
-                            backgroundColor: 'rgb(25, 25, 25)'
+                            backgroundColor: 'rgb(15, 15, 15)',
+                            fontFamily: 'Rubik'
                         }}
                         id="outlined-basic"
                         label="Search channels"
                         variant="outlined"
                         InputProps={{
-                            style: { color: 'white' }
+                            style: { color: 'white', fontFamily: 'Rubik' }
                         }}
                         InputLabelProps={{
-                            style: { color: 'white', fontSize: 15 }
+                            style: { color: 'white', fontSize: 14.5, fontFamily: 'Rubik' }
                         }}
                         onChange={handleQuery}
                     />
@@ -106,7 +112,7 @@ const SideSelection: React.FC = () => {
                                     alignItems: 'center',
                                     marginBottom: 10,
                                     paddingLeft: 12,
-                                    background: 'rgb(25, 25, 25)',
+                                    background: 'rgb(8, 8, 8)',
                                     fontSize: 15,
                                     borderRadius: 8,
                                     cursor: 'pointer'
