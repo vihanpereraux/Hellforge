@@ -40,6 +40,7 @@ const SideSelection: React.FC = () => {
     useEffect(() => { fetchChannelDetails(); }, [])
 
     const emitStorageEvent = (channelName: string, channelURL: string, streamType: string) => {
+        console.log('clicked')
         const channelDetails = {
             channelName: channelName,
             channelURL: channelURL,
@@ -79,7 +80,7 @@ const SideSelection: React.FC = () => {
                     <TextField
                         className={Styles.search}
                         sx={{
-                            width: '110%',
+                            width: '280px',
                             mb: 3.5,
                             mt: .5,
                             border: 'none',

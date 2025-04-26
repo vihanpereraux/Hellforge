@@ -18,6 +18,11 @@ const Home: React.FC = () => {
                     <Screen />
                 </div>
             </div>
+
+            {/* mobile note */}
+            <div className={Styles.mobile_note}>
+                <p>This application is designed for desktop browsers to provide an authentic old-school TV watching experience. Please switch to a desktop device for the best experience.</p>
+            </div>
         </>
     )
 }
