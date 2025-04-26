@@ -79,7 +79,7 @@ const SideSelection: React.FC = () => {
                     <TextField
                         className={Styles.search}
                         sx={{
-                            width: '105%',
+                            width: '110%',
                             mb: 3.5,
                             mt: .5,
                             border: 'none',
@@ -98,38 +98,45 @@ const SideSelection: React.FC = () => {
                         onChange={handleQuery}
                     />
 
-                    {data.map((data, index) => (
-                        <div key={index}>
-                            <div
-                                style={{
-                                    textDecoration: 'none',
-                                    color: 'white',
-                                    fontFamily: 'Rubik',
-                                    fontWeight: '400',
-                                    width: '100%',
-                                    height: 55,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    marginBottom: 10,
-                                    paddingLeft: 12,
-                                    background: 'rgb(8, 8, 8)',
-                                    fontSize: 15,
-                                    borderRadius: 8,
-                                    cursor: 'pointer'
-                                }}
-                                onClick={() => {
-                                    emitStorageEvent(`${data.channelName}`, `${data.channelURL}`, `${data.streamType}`)
-                                }}>
-                                <img style={{
-                                    width: '26px',
-                                    aspectRatio: '16/9',
-                                    objectFit: 'cover',
-                                    borderRadius: 4,
-                                    marginRight: 13
-                                }} src={data.channelLogo} alt="" />
-                                {data.channelName}</div>
-                        </div>
-                    ))}
+                    <div style={{
+                        height: 'calc(100vh - 170px)',
+                        overflowY: 'scroll',
+                        overflowX: 'hidden',
+                        width: 300
+                    }}>
+                        {data.map((data, index) => (
+                            <div key={index}>
+                                <div
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'white',
+                                        fontFamily: 'Rubik',
+                                        fontWeight: '400',
+                                        width: '90%',
+                                        height: 55,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        marginBottom: 10,
+                                        paddingLeft: 12,
+                                        background: 'rgb(8, 8, 8)',
+                                        fontSize: 15,
+                                        borderRadius: 8,
+                                        cursor: 'pointer'
+                                    }}
+                                    onClick={() => {
+                                        emitStorageEvent(`${data.channelName}`, `${data.channelURL}`, `${data.streamType}`)
+                                    }}>
+                                    <img style={{
+                                        width: '26px',
+                                        aspectRatio: '16/9',
+                                        objectFit: 'cover',
+                                        borderRadius: 4,
+                                        marginRight: 13
+                                    }} src={data.channelLogo} alt="" />
+                                    {data.channelName}</div>
+                            </div>
+                        ))}
+                    </div>
                 </AccordionDetails>
             </Accordion>
         </>

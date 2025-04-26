@@ -18,7 +18,7 @@ const Screen: React.FC = () => {
         // Initial TV effect
         setShowEffect(true);
         setTimeout(() => setShowEffect(false), 1000);
-        
+
         window.addEventListener('customStorage', fetchChannelDetails);
         return (() => {
             window.removeEventListener('customStorage', fetchChannelDetails);
@@ -28,7 +28,7 @@ const Screen: React.FC = () => {
     return (
         <div className="tv-screen">
             {showEffect && <div className="tv-effect" />}
-            
+
             {/* channel details */}
             <h2 style={{
                 color: 'white',
@@ -37,7 +37,7 @@ const Screen: React.FC = () => {
                 textAlign: 'center',
                 fontSize: 22
             }}>
-                {(data?.channelName) 
+                {(data?.channelName)
                     ? `You're watching - ${data?.channelName}`
                     : 'Welcome to Homeless TV'
                 }
@@ -57,6 +57,20 @@ const Screen: React.FC = () => {
                     />
                 )}
             </div>
+
+            {/*  */}
+            <span style={{
+                color: 'white',
+                fontSize: '11px',
+                opacity: 0.5,
+                textAlign: 'center',
+                display: 'block',
+                paddingTop: '60px',
+                paddingBottom: '20px',
+                fontFamily: 'Rubik'
+            }}>
+                All media content available through this application is sourced from publicly available internet streams. We do not own, host, or distribute any of the content. All content remains the property of their respective owners.
+            </span>
         </div>
     );
 };
