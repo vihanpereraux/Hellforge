@@ -80,18 +80,19 @@ const SideSelection: React.FC = () => {
                     <TextField
                         className={Styles.search}
                         sx={{
-                            width: '280px',
+                            width: '255px',
                             mb: 3.5,
                             mt: .5,
                             border: 'none',
                             backgroundColor: 'rgb(15, 15, 15)',
-                            fontFamily: 'Rubik'
+                            fontFamily: 'Rubik',
+                            fontSize: 14
                         }}
                         id="outlined-basic"
                         label="Search channels"
                         variant="outlined"
                         InputProps={{
-                            style: { color: 'white', fontFamily: 'Rubik' }
+                            style: { color: 'white', fontFamily: 'Rubik', fontSize: 15 }
                         }}
                         InputLabelProps={{
                             style: { color: 'white', fontSize: 14.5, fontFamily: 'Rubik' }
@@ -103,7 +104,7 @@ const SideSelection: React.FC = () => {
                         height: 'calc(100vh - 170px)',
                         overflowY: 'scroll',
                         overflowX: 'hidden',
-                        width: 300
+                        width: 270
                     }}>
                         {data.map((data, index) => (
                             <div key={index}>
