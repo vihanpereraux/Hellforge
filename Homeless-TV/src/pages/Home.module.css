@@ -5,11 +5,11 @@
 }
 
 ._selections {
-    width: 300px;
+    width: 270px;
 }
 
 ._screen {
-    width: calc(100vw - 300px);
+    width: calc(100vw - 270px);
     padding-left: 20px;
     padding-top: 5px;
     overflow-y: auto;

@@ -68,7 +68,7 @@ const SideSelection: React.FC = () => {
                         sx={{
                             color: 'white',
                             pl: '12px',
-                            fontSize: 16,
+                            fontSize: 15,
                             fontWeight: 500,
                             fontFamily: 'Rubik'
                         }}
@@ -119,8 +119,8 @@ const SideSelection: React.FC = () => {
                                         alignItems: 'center',
                                         marginBottom: 10,
                                         paddingLeft: 12,
-                                        background: 'rgb(8, 8, 8)',
-                                        fontSize: 15,
+                                        background: 'rgb(12, 12, 12)',
+                                        fontSize: 14,
                                         borderRadius: 8,
                                         cursor: 'pointer'
                                     }}

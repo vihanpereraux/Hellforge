@@ -33,9 +33,9 @@ const Screen: React.FC = () => {
             <h2 style={{
                 color: 'white',
                 fontFamily: 'Rubik',
-                fontWeight: '450',
+                fontWeight: '400',
                 textAlign: 'center',
-                fontSize: 22
+                fontSize: 20
             }}>
                 {(data?.channelName)
                     ? `You're watching - ${data?.channelName}`
