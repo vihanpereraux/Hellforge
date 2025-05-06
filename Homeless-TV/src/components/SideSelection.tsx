@@ -40,7 +40,6 @@ const SideSelection: React.FC = () => {
     useEffect(() => { fetchChannelDetails(); }, [])
 
     const emitStorageEvent = (channelName: string, channelURL: string, streamType: string) => {
-        console.log('clicked')
         const channelDetails = {
             channelName: channelName,
             channelURL: channelURL,
