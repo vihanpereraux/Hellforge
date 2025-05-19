@@ -11,7 +11,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { TextField } from "@mui/material";
+import { TextField, Box } from "@mui/material";
 
 // props
 import { ChannelDetailsProps } from "../interfaces/props";
@@ -22,7 +22,11 @@ import Styles from './side-selection.module.css';
 
 const SideSelection: React.FC = () => {
     const [data, setData] = useState<ChannelDetailsProps[]>([]);
-    const [originalData, setOriginalData] = useState<ChannelDetailsProps[]>([])
+    const [originalData, setOriginalData] = useState<ChannelDetailsProps[]>([]);
+    const [selectedChannel, setSelectedChannel] = useState<string>("");
+
+    // cleaning the default/ pre saved local cache
+    localStorage.setItem('channel', JSON.stringify({}));
 
     const fetchChannelDetails = async () => {
         const querySnapshot = await getDocs(collection(db, "channels"));
@@ -46,7 +50,8 @@ const SideSelection: React.FC = () => {
             streamType: streamType,
         }
         localStorage.setItem('channel', JSON.stringify(channelDetails));
-        window.dispatchEvent(new Event("customStorage"))
+        setSelectedChannel(channelDetails.channelName);
+        window.dispatchEvent(new Event("customStorage"));
     }
 
     return (
@@ -126,14 +131,26 @@ const SideSelection: React.FC = () => {
                                     }}
                                     onClick={() => {
                                         emitStorageEvent(data.channelName, data.channelURL, data.streamType)
+
                                     }}>
+                                    {/* streaming indicator */}
+                                    {selectedChannel === data.channelName && (
+                                        <Box sx={{
+                                            color: '#8b66fa',
+                                            mr: 1.6,
+                                            fontSize: 12
+                                        }}>▶</Box>)}
+
+                                    {/* channel logo */}
                                     <img style={{
                                         width: '26px',
                                         aspectRatio: '16/9',
                                         objectFit: 'cover',
                                         borderRadius: 4,
                                         marginRight: 13
-                                    }} src={data.channelLogo} alt="" />
+                                    }} src={data.channelLogo} loading="lazy" alt={data.channelName} />
+
+                                    {/* channel name */}
                                     {data.channelName}</div>
                             </div>
                         ))}

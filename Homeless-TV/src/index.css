@@ -11,9 +11,9 @@ body {
 
 /* player */
 .Mui-selected {
-  color: rgb(139, 102, 250) !important;
+  color: #8b66fa !important;
   font-weight: 450 !important;
 }
 .MuiTabs-indicator {
-  background-color: rgb(139, 102, 250)  !important;
+  background-color: #8b66fa !important;
 }
