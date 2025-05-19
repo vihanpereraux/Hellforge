@@ -51,13 +51,23 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
     return (
         <>
             <Box sx={{ width: '100%' }}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                <Box sx={{
+                    mt: 6,
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}>
+                    <Tabs value={value}
+                        onChange={handleChange}
+                        aria-label="basic tabs example">
                         {data && data.channelURL.map((link, index) => (
                             <Tab key={index}
                                 sx={{
                                     color: 'white',
-                                    textTransform: 'capitalize'
+                                    textTransform: 'capitalize',
+                                    textDecoration: 'none',
+                                    fontFamily: 'Rubik',
+                                    fontWeight: '400',
+                                    fontSize: 15
                                 }}
                                 label={link.slice(-3) == 'php' ?
                                     `IPTV Provider ${index < 10 && `0`}${index + 1} (Ads)` :
@@ -74,6 +84,7 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
+                                mt: 1
                             }}>
                                 <iframe
                                     allowFullScreen={true}
@@ -89,7 +100,8 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                                 width: '98.25%',
                                 display: 'flex',
                                 alignItems: 'center',
-                                justifyContent: 'center'
+                                justifyContent: 'center',
+                                mt: 1
                             }}>
                                 <ReactPlayer
                                     height={720 / .8}

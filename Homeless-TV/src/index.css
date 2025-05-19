@@ -8,3 +8,12 @@ body {
   overflow: hidden !important;
   background-color: black;
 }
+
+/* player */
+.Mui-selected {
+  color: rgb(139, 102, 250) !important;
+  font-weight: 450 !important;
+}
+.MuiTabs-indicator {
+  background-color: rgb(139, 102, 250)  !important;
+}
