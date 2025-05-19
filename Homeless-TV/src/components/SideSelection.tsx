@@ -39,7 +39,7 @@ const SideSelection: React.FC = () => {
 
     useEffect(() => { fetchChannelDetails(); }, [])
 
-    const emitStorageEvent = (channelName: string, channelURL: string, streamType: string) => {
+    const emitStorageEvent = (channelName: string, channelURL: string[], streamType: string) => {
         const channelDetails = {
             channelName: channelName,
             channelURL: channelURL,
@@ -125,7 +125,7 @@ const SideSelection: React.FC = () => {
                                         cursor: 'pointer'
                                     }}
                                     onClick={() => {
-                                        emitStorageEvent(`${data.channelName}`, `${data.channelURL}`, `${data.streamType}`)
+                                        emitStorageEvent(data.channelName, data.channelURL, data.streamType)
                                     }}>
                                     <img style={{
                                         width: '26px',

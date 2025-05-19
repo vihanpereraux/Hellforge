@@ -1,13 +1,13 @@
 export interface ChannelDataProps {
     channelName: string,
-    channelURL: string,
+    channelURL: string [],
     streamType: string,
     channel_logo: string
 }
 
 export interface PlayerProps {
     data: ChannelDataProps,
-    streamType: string,
+    // streamType: string,
 }
 
 export interface ChannelDetailsProps {
@@ -16,5 +16,5 @@ export interface ChannelDetailsProps {
     streamType: string,
     channelLogo: string,
     channelCategory: string,
-    channelURL: string
+    channelURL: string[]
 }

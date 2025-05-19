@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from 'react';
+
+// MUI
+import { Box } from '@mui/material';
+
+// components
 import Player from './Player';
+
+// props
 import { ChannelDataProps } from '../interfaces/props';
+
+// stylesheet
 import './tv-effect.css';
 
 const Screen: React.FC = () => {
@@ -12,12 +21,12 @@ const Screen: React.FC = () => {
             const data: ChannelDataProps = JSON.parse(localStorage.getItem('channel') as string);
             setData(data);
             setShowEffect(true);
-            setTimeout(() => setShowEffect(false), 2800);
+            setTimeout(() => setShowEffect(false), 3000);
         };
 
-        // Initial TV effect
+        // channel transition effect
         setShowEffect(true);
-        setTimeout(() => setShowEffect(false), 1000);
+        setTimeout(() => setShowEffect(false), 1500);
 
         window.addEventListener('customStorage', fetchChannelDetails);
         return (() => {
@@ -44,33 +53,25 @@ const Screen: React.FC = () => {
             </h2>
 
             {/* stream / player */}
-            <div>
-                {data?.streamType === "stream" ? (
-                    <Player
-                        data={data as ChannelDataProps}
-                        streamType="stream"
-                    />
-                ) : (
-                    <Player
-                        data={data as ChannelDataProps}
-                        streamType="iframe"
-                    />
-                )}
-            </div>
+            <Player data={data as ChannelDataProps} />
 
-            {/*  */}
-            <span style={{
-                color: 'white',
-                fontSize: '11px',
-                opacity: 0.5,
-                textAlign: 'center',
-                display: 'block',
-                paddingTop: '60px',
-                paddingBottom: '20px',
-                fontFamily: 'Rubik'
-            }}>
-                All media content available through this application is sourced from publicly available internet streams. We do not own, host, or distribute any of the content. All content remains the property of their respective owners.
-            </span>
+            {/* footer disclaimer */}
+            <Box>
+                <span style={{
+                    color: 'white',
+                    fontSize: '11px',
+                    opacity: 0.5,
+                    textAlign: 'center',
+                    display: 'block',
+                    paddingTop: '60px',
+                    paddingBottom: '20px',
+                    fontFamily: 'Rubik'
+                }}>
+                    All media content available through this application is sourced from
+                    publicly available internet streams. We do not own, host, or distribute
+                    any of the content. All content remains the property of their respective owners.
+                </span>
+            </Box>
         </div>
     );
 };
