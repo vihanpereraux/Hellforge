@@ -4,6 +4,7 @@ import React from "react";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { Typography } from "@mui/material";
 
 // components
 import ReactPlayer from 'react-player';
@@ -79,22 +80,37 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                 {data && data.channelURL.map((link, index) => (
                     <CustomTabPanel value={value} index={index} key={index}>
                         {link.slice(-3) == 'php' ? (
-                            <Box sx={{
-                                width: '99%',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                mt: 1
-                            }}>
-                                <iframe
-                                    allowFullScreen={true}
-                                    style={{
-                                        height: 'calc(720px / .8)',
-                                        width: 'calc(1080px / .8)',
-                                        border: 'none',
-                                        borderRadius: '12px'
-                                    }} src={link}></iframe>
-                            </Box>
+                            <>
+                                {/* add removal notice */}
+                                <Typography sx={{
+                                    color: 'white',
+                                    fontSize: 14,
+                                    textAlign: 'center',
+                                    mt: 1
+                                }}>This stream may have ads, to remove al ads use this
+                                    <a style={{
+                                        textDecoration: 'none',
+                                        color: '#b79eff'
+                                    }} href="https://ublockorigin.com/" target="_blank"> browser extension</a></Typography>
+
+                                {/* player */}
+                                <Box sx={{
+                                    width: '99%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    mt: 1
+                                }}>
+                                    <iframe
+                                        allowFullScreen={true}
+                                        style={{
+                                            height: 'calc(720px / .8)',
+                                            width: 'calc(1080px / .8)',
+                                            border: 'none',
+                                            borderRadius: '12px'
+                                        }} src={link}></iframe>
+                                </Box>
+                            </>
                         ) : (
                             <Box sx={{
                                 width: '98.25%',
