@@ -150,7 +150,7 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                             }}>
                                 <ReactPlayer
                                     style={{
-                                        aspectRatio: 16 / 9,
+                                        // aspectRatio: 16 / 9,
                                         border: '1px solid rgba(139, 102, 250, 0.3)',
                                         borderRadius: 6
                                     }}
