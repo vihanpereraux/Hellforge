@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 // MUI
 import Tabs from '@mui/material/Tabs';
@@ -43,17 +43,32 @@ function a11yProps(index: number) {
 
 const Player: React.FC<PlayerProps> = ({ data }) => {
     const [value, setValue] = React.useState(0);
+    const [addRemovalNote, setAddRemovalNote] = useState<boolean>(
+        JSON.parse(localStorage.getItem('addRemovalNote') as string)
+    );
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
         console.log(event);
     };
 
+    const ref = useRef<HTMLSpanElement>(null);
+
+    const handleAddRemovalNote = () => {
+        localStorage.setItem('addRemovalNote', "false");
+        setAddRemovalNote(false);
+        if (ref) {
+            if (ref.current) {
+                ref.current.style.display = 'none';
+            }
+        }
+    }
+
     return (
         <>
             <Box sx={{ width: '100%' }}>
                 <Box sx={{
-                    mt: 6,
+                    mt: 5,
                     display: 'flex',
                     justifyContent: 'center',
                 }}>
@@ -68,7 +83,7 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                                     textDecoration: 'none',
                                     fontFamily: 'Rubik',
                                     fontWeight: '400',
-                                    fontSize: 15
+                                    fontSize: 13
                                 }}
                                 label={link.slice(-3) == 'php' ?
                                     `IPTV Provider ${index < 10 && `0`}${index + 1} (Ads)` :
@@ -82,16 +97,28 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                         {link.slice(-3) == 'php' ? (
                             <>
                                 {/* add removal notice */}
-                                <Typography sx={{
-                                    color: 'white',
-                                    fontSize: 14,
-                                    textAlign: 'center',
-                                    mt: 1
-                                }}>This stream may have ads, to remove al ads use this
-                                    <a style={{
-                                        textDecoration: 'none',
-                                        color: '#b79eff'
-                                    }} href="https://ublockorigin.com/" target="_blank"> browser extension</a></Typography>
+                                {addRemovalNote && (
+                                    <Typography sx={{
+                                        color: 'white',
+                                        fontSize: 12,
+                                        textAlign: 'center',
+                                        mt: 1.5,
+                                        mb: 2
+                                    }}>This stream may have ads, to remove all ads use this &nbsp;
+                                        <a style={{
+                                            textDecoration: 'underline',
+                                            color: 'rgb(143, 120, 255)',
+                                            marginRight: 12,
+                                        }} href="https://ublockorigin.com/" target="_blank">browser extension</a>
+
+                                        {/* hide icon */}
+                                        [ <span ref={ref}
+                                            style={{
+                                                textDecoration: 'underline',
+                                                cursor: 'pointer'
+                                            }} onClick={() => { handleAddRemovalNote() }}>Hide</span> ]
+                                    </Typography>
+                                )}
 
                                 {/* player */}
                                 <Box sx={{
@@ -104,10 +131,10 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                                     <iframe
                                         allowFullScreen={true}
                                         style={{
-                                            height: 'calc(720px / .8)',
+                                            height: 'calc(720px / .9)',
                                             width: 'calc(1080px / .8)',
-                                            border: 'none',
-                                            borderRadius: '12px'
+                                            border: '1px solid rgba(139, 102, 250, 0.3)',
+                                            borderRadius: 6
                                         }} src={link}></iframe>
                                 </Box>
                             </>
@@ -120,6 +147,11 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                                 mt: 1
                             }}>
                                 <ReactPlayer
+                                    style={{
+                                        aspectRatio: 16 / 9,
+                                        border: '1px solid rgba(139, 102, 250, 0.3)',
+                                        borderRadius: 6
+                                    }}
                                     height={720 / .8}
                                     width={1080 / .8}
                                     url={link}

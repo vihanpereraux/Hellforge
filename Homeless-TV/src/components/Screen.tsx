@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // MUI
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 // components
 import Player from './Player';
@@ -35,23 +35,23 @@ const Screen: React.FC = () => {
     }, []);
 
     return (
-        <div className="tv-screen">
+        <Box className="tv-screen">
             {showEffect && <div className="tv-effect" />}
 
             {/* channel details */}
-            <h2 style={{
+            <Typography sx={{
                 color: 'white',
                 fontFamily: 'Rubik',
-                fontWeight: '450',
+                fontWeight: '400',
                 textAlign: 'center',
-                fontSize: 18,
-                marginTop: 25
+                fontSize: 17,
+                marginTop: 3
             }}>
                 {(data?.channelName)
-                    ? `You're watching - ${data?.channelName}`
+                    ? `You are watching - ${data?.channelName}`
                     : 'Welcome to Homeless TV'
                 }
-            </h2>
+            </Typography>
 
             {/* stream / player */}
             <Player data={data as ChannelDataProps} />
@@ -73,7 +73,7 @@ const Screen: React.FC = () => {
                     any of the content. All content remains the property of their respective owners.
                 </span>
             </Box>
-        </div>
+        </Box>
     );
 };
 

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import UseAnimations from 'react-useanimations';
+import activity from 'react-useanimations/lib/activity';
 
 // firebase
 import { collection, getDocs } from 'firebase/firestore';
@@ -27,6 +29,9 @@ const SideSelection: React.FC = () => {
 
     // cleaning the default/ pre saved local cache
     localStorage.setItem('channel', JSON.stringify({}));
+
+    // add removal note config
+    localStorage.setItem('addRemovalNote', "true");
 
     const fetchChannelDetails = async () => {
         const querySnapshot = await getDocs(collection(db, "channels"));
@@ -112,7 +117,7 @@ const SideSelection: React.FC = () => {
                     }}>
                         {data.map((data, index) => (
                             <div key={index}>
-                                <div
+                                <Box
                                     style={{
                                         textDecoration: 'none',
                                         color: 'white',
@@ -122,6 +127,7 @@ const SideSelection: React.FC = () => {
                                         height: 55,
                                         display: 'flex',
                                         alignItems: 'center',
+                                        justifyContent: 'space-between',
                                         marginBottom: 10,
                                         paddingLeft: 12,
                                         background: 'rgb(12, 12, 12)',
@@ -133,25 +139,29 @@ const SideSelection: React.FC = () => {
                                         emitStorageEvent(data.channelName, data.channelURL, data.streamType)
 
                                     }}>
+                                    <Box>
+                                        {/* channel logo */}
+                                        <img style={{
+                                            width: '26px',
+                                            aspectRatio: '16/9',
+                                            objectFit: 'cover',
+                                            borderRadius: 4,
+                                            marginRight: 13
+                                        }} src={data.channelLogo} loading="lazy" alt={data.channelName} />
+
+                                        {/* channel name */}
+                                        {data.channelName}
+                                    </Box>
+
                                     {/* streaming indicator */}
-                                    {selectedChannel === data.channelName && (
-                                        <Box sx={{
-                                            color: '#8b66fa',
-                                            mr: 1.6,
-                                            fontSize: 12
-                                        }}>▶</Box>)}
-
-                                    {/* channel logo */}
-                                    <img style={{
-                                        width: '26px',
-                                        aspectRatio: '16/9',
-                                        objectFit: 'cover',
-                                        borderRadius: 4,
-                                        marginRight: 13
-                                    }} src={data.channelLogo} loading="lazy" alt={data.channelName} />
-
-                                    {/* channel name */}
-                                    {data.channelName}</div>
+                                        {selectedChannel === data.channelName && (
+                                            <Box sx={{ mr: 2 }}>
+                                                <UseAnimations
+                                                    animation={activity}
+                                                    size={22}
+                                                    strokeColor='#8b66fa' />
+                                            </Box>)}
+                                </Box>
                             </div>
                         ))}
                     </div>
