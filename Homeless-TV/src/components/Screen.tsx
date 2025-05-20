@@ -60,7 +60,7 @@ const Screen: React.FC = () => {
             <Box>
                 <span style={{
                     color: 'white',
-                    fontSize: '11px',
+                    fontSize: '10px',
                     opacity: 0.5,
                     textAlign: 'center',
                     display: 'block',

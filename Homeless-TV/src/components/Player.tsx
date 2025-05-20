@@ -83,11 +83,13 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                                     textDecoration: 'none',
                                     fontFamily: 'Rubik',
                                     fontWeight: '400',
-                                    fontSize: 13
+                                    fontSize: 13,
+                                    ml: .5,
+                                    mr: .5
                                 }}
                                 label={link.slice(-3) == 'php' ?
-                                    `IPTV Provider ${index < 10 && `0`}${index + 1} (Ads)` :
-                                    `IPTV Provider ${index < 10 && `0`}${index + 1} (Ads Free) ᯤ`}
+                                    `IPTV Provider ${index < 10 && `0`}${index + 1} (Ad)` :
+                                    (`IPTV Provider ${index < 10 && `0`}${index + 1} (Ad Free)` + ' ᯤ')}
                                 {...a11yProps(index)} />
                         ))}
                     </Tabs>
