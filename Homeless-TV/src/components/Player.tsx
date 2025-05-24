@@ -133,9 +133,9 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                                     <iframe
                                         allowFullScreen={true}
                                         style={{
-                                            height: 'calc(720px / .9)',
                                             width: 'calc(1080px / .8)',
-                                            border: '1px solid rgba(139, 102, 250, 0.3)',
+                                            aspectRatio: 16 / 9,
+                                            border: '1px solid rgba(139, 102, 250, 0.15)',
                                             borderRadius: 6
                                         }} src={link}></iframe>
                                 </Box>
@@ -150,12 +150,12 @@ const Player: React.FC<PlayerProps> = ({ data }) => {
                             }}>
                                 <ReactPlayer
                                     style={{
-                                        // aspectRatio: 16 / 9,
-                                        border: '1px solid rgba(139, 102, 250, 0.3)',
-                                        borderRadius: 6
+                                        aspectRatio: 16 / 9,
+                                        border: '1px solid rgba(139, 102, 250, 0.15)',
+                                        borderRadius: 6,
                                     }}
-                                    height={720 / .8}
-                                    width={1080 / .8}
+                                    height={'40vw'}
+                                    width={'70vw'}
                                     url={link}
                                     playing={true}
                                     controls

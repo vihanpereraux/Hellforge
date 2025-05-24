@@ -58,20 +58,21 @@ const Screen: React.FC = () => {
 
             {/* footer disclaimer */}
             <Box>
-                <span style={{
+                <Typography sx={{
                     color: 'white',
-                    fontSize: '10px',
+                    fontSize: { xs: 5, md: 7, lg: 10 },
                     opacity: 0.5,
                     textAlign: 'center',
                     display: 'block',
-                    paddingTop: '60px',
-                    paddingBottom: '20px',
-                    fontFamily: 'Rubik'
+                    pt: '60px',
+                    pb: '20px',
+                    fontFamily: 'Rubik',
+                    pr: 2
                 }}>
                     All media content available through this application is sourced from
                     publicly available internet streams. We do not own, host, or distribute
                     any of the content. All content remains the property of their respective owners.
-                </span>
+                </Typography>
             </Box>
         </Box>
     );
